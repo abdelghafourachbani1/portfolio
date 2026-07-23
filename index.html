@@ -603,9 +603,18 @@
                                     ${p.technologies.map(tech => `<span class="bg-neo-black text-white px-2 py-1">${tech}</span>`).join('')}
                                 </div>
                             </div>
-                            <a href="${p.github}" target="_blank" class="w-12 h-12 border-2 border-black bg-neo-green flex items-center justify-center hover:bg-black hover:text-white transition-all shadow-hard-sm ml-4">
-                                <i class="ri-arrow-right-up-line text-2xl"></i>
-                            </a>
+                            <div class="flex gap-2 ml-4">
+                                ${p.demo ? `
+                                    <a href="${p.demo}" target="_blank" title="Live Demo" class="w-12 h-12 border-2 border-black bg-neo-yellow flex items-center justify-center hover:bg-black hover:text-white transition-all shadow-hard-sm cursor-hover">
+                                        <i class="ri-external-link-line text-2xl"></i>
+                                    </a>
+                                ` : ''}
+                                ${p.github ? `
+                                    <a href="${p.github}" target="_blank" title="GitHub Code" class="w-12 h-12 border-2 border-black bg-neo-green flex items-center justify-center hover:bg-black hover:text-white transition-all shadow-hard-sm cursor-hover">
+                                        <i class="ri-github-line text-2xl"></i>
+                                    </a>
+                                ` : ''}
+                            </div>
                         </div>
                     </article>
                 `).join('')
