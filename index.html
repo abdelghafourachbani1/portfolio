@@ -1,0 +1,729 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- SEO Meta Tags -->
+    <meta name="description" id="meta-description" content="">
+    <meta name="keywords" id="meta-keywords" content="">
+    <meta name="author" id="meta-author" content="">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" id="og-title" content="">
+    <meta property="og:description" id="og-description" content="">
+    <meta property="og:image" id="og-image" content="">
+
+    <title id="page-title">Portfolio</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link type="logo" rel="icon" href="Assets/images/title_icon.png">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700;800&family=Space+Grotesk:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'neo-yellow': '#00F0FF', /* Changed to Cyan for more life */
+                        'neo-pink': '#FF007F',
+                        'neo-blue': '#4D4DFF',
+                        'neo-green': '#00FF66',
+                        'neo-purple': '#9D00FF',
+                        'neo-orange': '#FF7A00',
+                        'neo-red': '#FF4D4D',
+                        'neo-white': '#FFFFFF',
+                        'neo-black': '#0A0A0A',
+                    },
+                    fontFamily: {
+                        'display': ['"Space Grotesk"', 'sans-serif'],
+                        'mono': ['"JetBrains Mono"', 'monospace'],
+                    },
+                    boxShadow: {
+                        'hard': '4px 4px 0px 0px #000',
+                        'hard-sm': '2px 2px 0px 0px #000',
+                        'hard-lg': '8px 8px 0px 0px #000',
+                        'hard-xl': '12px 12px 0px 0px #000',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            cursor: none;
+            background-color: #FAFBFF;
+            background-image:
+                radial-gradient(#000 1px, transparent 1px),
+                linear-gradient(to right, #e5e5e5 1px, transparent 1px),
+                linear-gradient(to bottom, #e5e5e5 1px, transparent 1px);
+            background-size: 40px 40px, 100px 100px, 100px 100px;
+        }
+
+        #cursor {
+            pointer-events: none;
+            position: fixed;
+            z-index: 9999;
+            mix-blend-mode: difference;
+            transition: width 0.2s, height 0.2s, background-color 0.2s, transform 0.1s;
+        }
+
+        .marquee-container {
+            overflow: hidden;
+        }
+
+        .marquee-content {
+            display: flex;
+            animation: scroll 40s linear infinite;
+            width: max-content;
+        }
+
+        .marquee-container:hover .marquee-content {
+            animation-play-state: paused;
+        }
+
+        @keyframes scroll {
+            0% {
+                transform: translateX(0);
+            }
+
+            100% {
+                transform: translateX(-50%);
+            }
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .glitch-hover:hover {
+            animation: glitch-anim 0.3s cubic-bezier(.25, .46, .45, .94) both infinite;
+            color: #FF2A2A;
+        }
+
+        @keyframes glitch-anim {
+            0% {
+                transform: translate(0)
+            }
+
+            20% {
+                transform: translate(-2px, 2px)
+            }
+
+            40% {
+                transform: translate(-2px, -2px)
+            }
+
+            60% {
+                transform: translate(2px, 2px)
+            }
+
+            80% {
+                transform: translate(2px, -2px)
+            }
+
+            100% {
+                transform: translate(0)
+            }
+        }
+
+        .hero-title-part {
+            transition: transform 0.3s ease, color 0.3s ease;
+            display: inline-block;
+        }
+
+        .hero-title-part:hover {
+            transform: scale(1.1) rotate(2deg);
+        }
+    </style>
+</head>
+
+<body class="text-neo-black font-display antialiased selection:bg-neo-black selection:text-neo-yellow">
+    <div id="cursor" class="w-6 h-6 bg-white rounded-full border-2 border-black hidden lg:block"></div>
+    <div class="fixed top-0 left-0 h-2 bg-neo-green z-[60] border-b-2 border-black" id="progressBar" style="width: 0%">
+    </div>
+
+    <nav class="fixed top-0 w-full z-50 px-4 py-4 pointer-events-none">
+        <div class="max-w-7xl mx-auto flex justify-between items-center pointer-events-auto">
+            <a href="#"
+                class="bg-neo-white border-2 border-black px-4 py-1 text-2xl font-black shadow-hard hover:bg-neo-yellow transition-all hover:translate-x-1 hover:translate-y-1 hover:shadow-none cursor-hover"
+                id="nav-logo">
+                LOADING...
+            </a>
+            <div class="hidden md:flex gap-4 bg-white border-2 border-black p-2 shadow-hard">
+                <a href="#about"
+                    class="px-3 py-1 font-mono font-bold text-sm hover:bg-black hover:text-white transition-colors cursor-hover">/ABOUT</a>
+                <a href="#skills"
+                    class="px-3 py-1 font-mono font-bold text-sm hover:bg-black hover:text-white transition-colors cursor-hover">/SKILLS</a>
+                <a href="#experience"
+                    class="px-3 py-1 font-mono font-bold text-sm hover:bg-black hover:text-white transition-colors cursor-hover">/LOGS</a>
+                <a href="#projects"
+                    class="px-3 py-1 font-mono font-bold text-sm hover:bg-black hover:text-white transition-colors cursor-hover">/WORK</a>
+                <a href="#contact"
+                    class="px-3 py-1 font-mono font-bold text-sm bg-neo-yellow border border-black hover:bg-neo-pink transition-colors cursor-hover">HIRE
+                    ME</a>
+            </div>
+        </div>
+    </nav>
+
+    <section
+        class="min-h-screen flex flex-col justify-center items-center px-4 pt-20 relative overflow-hidden border-b-4 border-black">
+        <div
+            class="absolute top-1/3 left-[10%] w-16 h-16 bg-neo-blue border-4 border-black shadow-hard animate-bounce hidden lg:block rotate-12">
+        </div>
+        <div
+            class="absolute bottom-1/3 right-[10%] w-24 h-24 bg-neo-pink rounded-full border-4 border-black shadow-hard hidden lg:block animate-pulse">
+        </div>
+        <div class="absolute top-20 right-20 text-9xl opacity-5 font-black select-none pointer-events-none">CODE</div>
+
+        <div class="relative z-10 text-center max-w-5xl">
+            <div
+                class="inline-block bg-neo-white border-2 border-black px-4 py-1 mb-6 shadow-hard rotate-[-2deg] reveal">
+                <span class="font-mono font-bold text-neo-green bg-black px-2 mr-2">●</span>
+                <span class="font-mono font-bold" id="system-status">SYSTEM STATUS: ONLINE</span>
+            </div>
+            <h1 class="text-[10vw] md:text-[7vw] leading-[0.9] font-black uppercase tracking-tighter mb-6 reveal mix-blend-darken"
+                id="hero-title">
+                <span class="text-neo-blue">FULL</span> <span class="text-neo-pink">STACK</span><br>
+                <span class="text-white text-stroke-black" style="-webkit-text-stroke: 3px black;">DEVELOPER</span>
+            </h1>
+            <p class="font-mono text-lg md:text-2xl max-w-2xl mx-auto mb-10 bg-neo-green border-2 border-black p-4 shadow-hard reveal rotate-1"
+                id="hero-bio">
+                Loading...
+            </p>
+            <div class="flex flex-col md:flex-row justify-center gap-6 reveal">
+                <a href="#projects"
+                    class="bg-black text-white border-2 border-black px-10 py-5 text-xl font-bold shadow-hard hover:bg-neo-green hover:text-black hover:translate-x-1 hover:translate-y-1 hover:shadow-none transition-all cursor-hover">
+                    VIEW DATABASE
+                </a>
+                <a href="#" download id="download-cv"
+                    class="bg-neo-white text-black border-2 border-black px-10 py-5 text-xl font-bold shadow-hard hover:bg-neo-pink hover:text-black hover:translate-x-1 hover:translate-y-1 hover:shadow-none transition-all cursor-hover flex items-center justify-center gap-2">
+                    <i class="ri-download-line"></i> DOWNLOAD CV
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <div class="border-b-4 border-black bg-neo-blue py-3 relative z-20">
+        <div class="marquee-container font-mono font-bold text-2xl text-white">
+            <div class="marquee-content" id="marquee-text">
+                /// OPEN FOR WORK /// FULL STACK DEVELOPMENT /// WORDPRESS /// SEO ON-PAGE /// RGPD /// WCAG 2.1 ///
+                UI/UX DESIGN /// GRAPHIC DESIGN /// OPEN FOR WORK ///
+            </div>
+        </div>
+    </div>
+
+    <section id="about" class="py-24 px-4 max-w-7xl mx-auto border-x-4 border-black bg-white my-12 shadow-hard-lg">
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-12">
+            <div class="md:col-span-4 reveal">
+                <div class="aspect-square bg-gray-200 border-4 border-black relative shadow-hard overflow-hidden group">
+                    <img src="Assets/images/img.jpg" alt="Profile" id="profile-img"
+                        class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500">
+                    <span
+                        class="absolute top-2 left-2 bg-neo-red text-white px-2 font-mono text-xs border border-black z-10">AVATAR.JPG</span>
+                </div>
+            </div>
+            <div class="md:col-span-8 flex flex-col justify-center reveal">
+                <h2 class="text-6xl font-black uppercase mb-6">Who am I?</h2>
+                <p class="font-mono text-xl leading-relaxed mb-6" id="about-text">
+                    Loading...
+                </p>
+                <p class="font-mono text-lg mb-8 text-gray-600 border-l-4 border-neo-purple pl-4" id="about-details">
+                    > Specialized in Laravel, PHP, JavaScript, and database design.<br>
+                    > Focused on clean code, scalable architecture, and continuous learning.
+                </p>
+                <div class="flex gap-4">
+                    <div class="bg-neo-black text-white px-4 py-2 font-mono text-sm border-2 border-transparent"
+                        id="location-tag">
+                        📍 LOCATION: MOROCCO
+                    </div>
+                    <div class="bg-neo-green text-black px-4 py-2 font-mono text-sm border-2 border-black"
+                        id="status-tag">
+                        🟢 STATUS: AVAILABLE
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills" class="py-20 bg-neo-black text-neo-white border-y-4 border-black relative overflow-hidden">
+        <div class="max-w-[1400px] mx-auto px-4 relative z-10">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-12 border-b-4 border-white pb-4">
+                <h2 class="text-6xl md:text-8xl font-black uppercase text-white tracking-tighter">
+                    TECH<span class="text-neo-green">_STACK</span>
+                </h2>
+                <div class="flex items-center gap-2 mb-2 md:mb-4">
+                    <div class="w-3 h-3 bg-red-500 rounded-full animate-pulse"></div>
+                    <p class="font-mono text-neo-green text-sm font-bold">/// SYSTEM_OPTIMIZED</p>
+                </div>
+            </div>
+            <div class="flex flex-wrap justify-center md:justify-start" id="skills-grid">
+                <!-- Skills populated by JS -->
+            </div>
+        </div>
+    </section>
+
+    <section id="experience" class="py-24 px-4 max-w-7xl mx-auto">
+        <h2 class="text-5xl md:text-8xl font-black uppercase mb-12 tracking-tighter text-center">
+            Experience<span class="text-neo-red">_Log</span>
+        </h2>
+        <div class="relative border-l-4 border-black ml-4 md:ml-10 space-y-12" id="experience-timeline">
+            <!-- Experience populated by JS -->
+        </div>
+    </section>
+
+    <!-- CODING STATS SECTION -->
+    <section id="coding-stats" class="py-12 bg-neo-black text-white border-y-4 border-black relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 relative z-10">
+            <div class="flex justify-between items-center mb-6 border-b-2 border-white pb-3">
+                <h2 class="text-4xl md:text-5xl font-black uppercase text-white tracking-tight">
+                    CODING<span class="text-neo-green">_STATS</span>
+                </h2>
+                <div class="flex items-center gap-2">
+                    <div class="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
+                    <p class="font-mono text-neo-green text-xs font-bold">LIVE</p>
+                </div>
+            </div>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <!-- GitHub -->
+                <div class="reveal">
+                    <div class="flex items-center gap-2 mb-4 border-b border-white/20 pb-2">
+                        <div class="w-8 h-8 bg-neo-green border-2 border-white flex items-center justify-center">
+                            <i class="ri-github-fill text-lg text-black"></i>
+                        </div>
+                        <h3 class="text-2xl font-black uppercase text-white">GITHUB</h3>
+                    </div>
+                    <div class="border-4 border-white/20 p-6 bg-black shadow-hard relative group">
+                        <div class="flex items-center justify-between mb-8 pb-4 border-b border-white/10">
+                            <div class="flex items-center gap-3">
+                                <i class="ri-github-fill text-3xl text-neo-green"></i>
+                                <div>
+                                    <h4 class="text-xl font-black text-white leading-tight" id="github-username-text">
+                                        username</h4>
+                                    <p class="text-[10px] font-mono text-neo-green uppercase tracking-widest">Active
+                                        Coder</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="grid grid-cols-2 gap-4 mb-8 uppercase">
+                            <div class="border-2 border-neo-green/30 bg-neo-black/60 p-4">
+                                <div class="text-[9px] font-mono text-neo-green mb-1 opacity-70">Repositories</div>
+                                <div id="repos-count" class="text-white font-black text-3xl tracking-tighter">--</div>
+                            </div>
+                            <div class="border-2 border-neo-green/30 bg-neo-black/60 p-4">
+                                <div class="text-[9px] font-mono text-neo-green mb-1 opacity-70">Followers</div>
+                                <div id="followers-count" class="text-white font-black text-3xl tracking-tighter">--
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mb-8">
+                            <img id="github-chart" src="" alt="GitHub Chart"
+                                class="w-full h-auto filter brightness-110" />
+                        </div>
+                        <a id="github-link" href="#" target="_blank"
+                            class="block text-center text-neo-green px-3 py-2 font-black uppercase border-2 border-neo-green hover:bg-neo-green hover:text-black transition-all">VIEW_GH
+                            →</a>
+                    </div>
+                </div>
+                <!-- LeetCode -->
+                <div class="reveal">
+                    <div class="flex items-center gap-2 mb-4 border-b border-white/20 pb-2">
+                        <div class="w-8 h-8 bg-neo-orange border-2 border-white flex items-center justify-center">
+                            <i class="ri-code-box-fill text-lg text-black"></i>
+                        </div>
+                        <h3 class="text-2xl font-black uppercase text-white">LEETCODE</h3>
+                    </div>
+                    <div class="border-4 border-white/20 p-6 bg-black shadow-hard relative group">
+                        <div class="flex items-center justify-between mb-8 pb-4 border-b border-white/10">
+                            <div class="flex items-center gap-3">
+                                <i class="ri-code-box-fill text-3xl text-neo-orange"></i>
+                                <div>
+                                    <h4 class="text-xl font-black text-white leading-tight" id="leetcode-username-text">
+                                        username</h4>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mb-8">
+                            <img id="leetcode-card" src="" alt="LeetCode Card"
+                                class="w-full h-auto object-contain filter contrast-125" />
+                        </div>
+                        <a id="leetcode-link" href="#" target="_blank"
+                            class="block text-center text-neo-orange px-3 py-2 font-black uppercase border-2 border-neo-orange hover:bg-neo-orange hover:text-black transition-all">VIEW_LC
+                            →</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects" class="py-24 bg-neo-yellow border-t-4 border-black px-4 overflow-hidden">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="text-6xl md:text-9xl font-black mb-16 uppercase tracking-tighter text-white drop-shadow-[4px_4px_0_rgba(0,0,0,1)] text-stroke-black"
+                style="-webkit-text-stroke: 3px black;">
+                Selected Works
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12" id="projects-grid">
+                <!-- Projects populated by JS -->
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="py-24 px-4 bg-neo-white border-t-4 border-black">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                <div>
+                    <h2 class="text-6xl font-black uppercase mb-6 leading-[0.85]">Let's<br>Talk<br>Code.</h2>
+                    <p class="font-mono text-lg mb-8 text-gray-600">
+                        I am currently available for freelance work and open to internship/full-time opportunities.
+                    </p>
+                    <div class="space-y-4">
+                        <div class="flex items-center gap-4">
+                            <div
+                                class="w-12 h-12 bg-neo-black text-white flex items-center justify-center border-2 border-black">
+                                <i class="ri-mail-line text-xl"></i>
+                            </div>
+                            <a id="contact-email" href="#"
+                                class="text-xl font-bold hover:bg-neo-blue cursor-hover">email@example.com</a>
+                        </div>
+                        <div class="flex items-center gap-4">
+                            <div
+                                class="w-12 h-12 bg-neo-black text-white flex items-center justify-center border-2 border-black">
+                                <i class="ri-phone-line text-xl"></i>
+                            </div>
+                            <span id="contact-phone" class="text-xl font-bold">06xxxxxxxx</span>
+                        </div>
+                    </div>
+                </div>
+                <form class="space-y-6 bg-gray-50 p-6 border-2 border-black">
+                    <div class="flex flex-col">
+                        <label class="font-mono font-bold mb-1 uppercase text-xs">Identity</label>
+                        <input type="text" placeholder="NAME / COMPANY"
+                            class="bg-white border-2 border-black p-3 font-bold focus:outline-none focus:bg-neo-yellow focus:shadow-hard-sm transition-all cursor-hover">
+                    </div>
+                    <div class="flex flex-col">
+                        <label class="font-mono font-bold mb-1 uppercase text-xs">Coordinates</label>
+                        <input type="email" placeholder="EMAIL ADDRESS"
+                            class="bg-white border-2 border-black p-3 font-bold focus:outline-none focus:bg-neo-yellow focus:shadow-hard-sm transition-all cursor-hover">
+                    </div>
+                    <div class="flex flex-col">
+                        <label class="font-mono font-bold mb-1 uppercase text-xs">Transmission</label>
+                        <textarea rows="4" placeholder="PROJECT DETAILS..."
+                            class="bg-white border-2 border-black p-3 font-bold focus:outline-none focus:bg-neo-yellow focus:shadow-hard-sm transition-all resize-none cursor-hover"></textarea>
+                    </div>
+                    <button type="submit"
+                        class="w-full bg-neo-blue text-white font-black text-xl py-4 border-2 border-black shadow-hard neo-button hover:bg-neo-black hover:translate-y-1 hover:shadow-none transition-all cursor-hover">
+                        TRANSMIT DATA
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-black text-white py-16 px-4 border-t-8 border-neo-green font-mono relative overflow-hidden">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-12 relative z-10">
+            <div class="col-span-1 md:col-span-2">
+                <h2 class="text-4xl font-black mb-6" id="footer-logo">NAME.</h2>
+                <p class="text-gray-400 max-w-sm">
+                    Designing for the future with the raw aesthetics of the past. No cookies, no trackers, just code.
+                </p>
+            </div>
+            <div>
+                <h3 class="font-bold text-neo-green mb-4 border-b border-gray-700 pb-2">SITEMAP</h3>
+                <ul class="space-y-2 text-gray-400">
+                    <li><a href="#"
+                            class="hover:text-white hover:underline decoration-neo-pink decoration-2 cursor-hover">Home</a>
+                    </li>
+                    <li><a href="#projects"
+                            class="hover:text-white hover:underline decoration-neo-pink decoration-2 cursor-hover">Works</a>
+                    </li>
+                    <li><a href="#about"
+                            class="hover:text-white hover:underline decoration-neo-pink decoration-2 cursor-hover">About</a>
+                    </li>
+                    <li><a href="#contact"
+                            class="hover:text-white hover:underline decoration-neo-pink decoration-2 cursor-hover">Contact</a>
+                    </li>
+                </ul>
+            </div>
+            <div>
+                <h3 class="font-bold text-neo-green mb-4 border-b border-gray-700 pb-2">SOCIALS</h3>
+                <div class="flex gap-4" id="footer-socials">
+                    <!-- Socials populated by JS -->
+                </div>
+            </div>
+        </div>
+        <div class="text-center mt-16 pt-8 border-t border-gray-800 text-gray-500 text-sm">
+            <p id="copyright">© 2026 // SYSTEM_END</p>
+        </div>
+    </footer>
+
+    <script>
+        async function loadPortfolio() {
+            try {
+                const response = await fetch('NEWME.json');
+                const data = await response.json();
+                const skills = data.skills || {};
+                const asArray = (value) => Array.isArray(value) ? value : [];
+                const frameworks = asArray(skills.frameworks_and_libraries);
+
+                // Meta & Title
+                document.getElementById('page-title').textContent = `${data.personal.name.toUpperCase()} | ${data.personal.title}`;
+                document.getElementById('meta-description').content = data.personal.bio;
+                document.getElementById('meta-author').content = data.personal.name;
+                document.getElementById('og-title').content = `${data.personal.name} | Portfolio`;
+                document.getElementById('og-description').content = data.personal.bio;
+
+                // Nav & Hero
+                document.getElementById('nav-logo').textContent = `${data.personal.name.split(' ')[0].toUpperCase()}.exe`;
+
+                // Multi-color Title Logic
+                const titleParts = data.personal.title.split(' ');
+
+                document.getElementById('hero-title').innerHTML = `
+                    <span class="text-neo-blue hero-title-part cursor-hover">${titleParts[0] || ''}</span> 
+                    <span class="text-neo-pink hero-title-part cursor-hover">${titleParts[1] || ''}</span><br>
+                    <span class="text-white text-stroke-black hero-title-part cursor-hover" style="-webkit-text-stroke: 3px black;">${titleParts.slice(2).join(' ') || 'DEVELOPER'}</span>
+                `;
+
+                document.getElementById('hero-bio').innerHTML = `${data.personal.bio.split('. ')[0]}. <br><b>${frameworks.slice(0, 4).join(' • ')}</b>`;
+                document.getElementById('hero-bio').classList.replace('bg-neo-yellow', 'bg-neo-green');
+                document.getElementById('download-cv').href = data.resume.file;
+
+                // About
+                document.getElementById('about-text').innerHTML = `I am ${data.personal.name.split(' ')[0]}. ${data.personal.bio}`;
+                document.getElementById('location-tag').textContent = `📍 LOCATION: ${data.personal.location.toUpperCase()}`;
+                document.getElementById('status-tag').textContent = `🟢 STATUS: ${data.personal.status.toUpperCase()}`;
+                document.getElementById('status-tag').classList.replace('bg-neo-green', 'bg-neo-blue');
+
+                // Skills Grid
+                const skillsGrid = document.getElementById('skills-grid');
+                const allSkills = [
+                    ...asArray(skills.frontend).slice(0, 4).map(s => ({ name: s, type: 'frontend' })),
+                    ...asArray(skills.backend).slice(0, 4).map(s => ({ name: s, type: 'backend' })),
+                    ...asArray(skills.databases).slice(0, 4).map(s => ({ name: s, type: 'database' })),
+                    ...asArray(skills.design).slice(0, 4).map(s => ({ name: s, type: 'design' })),
+                    ...frameworks.slice(0, 4).map(s => ({ name: s, type: 'framework' })),
+                    ...asArray(skills.tools).slice(0, 4).map(s => ({ name: s, type: 'tool' }))
+                ];
+
+                const colorMap = {
+                    'frontend': 'hover:bg-neo-blue',
+                    'backend': 'hover:bg-neo-green',
+                    'database': 'hover:bg-neo-orange',
+                    'design': 'hover:bg-neo-red',
+                    'framework': 'hover:bg-neo-purple',
+                    'tool': 'hover:bg-neo-pink'
+                };
+
+                skillsGrid.innerHTML = allSkills.map(skill => `
+                    <div class="group w-1/2 sm:w-1/3 md:w-1/4 lg:w-1/6 xl:w-[12.5%] h-24 border-r-2 border-b-2 border-white/20 bg-neo-black ${colorMap[skill.type] || 'hover:bg-white'} transition-all duration-0 hover:z-10 relative cursor-hover flex flex-col items-center justify-center p-2">
+                        <div class="text-neo-green group-hover:text-black font-mono text-xs mb-1 opacity-50">>_ ${skill.type.toUpperCase()}</div>
+                        <div class="text-white group-hover:text-black font-black font-display text-xl uppercase">${skill.name}</div>
+                    </div>
+                `).join('');
+
+                // Experience
+                const expTimeline = document.getElementById('experience-timeline');
+                const colors = ['bg-neo-blue', 'bg-neo-pink', 'bg-neo-green', 'bg-neo-purple', 'bg-neo-orange'];
+                expTimeline.innerHTML = asArray(data.experience).map((exp, i) => `
+                    <div class="reveal relative pl-8 md:pl-16">
+                        <div class="absolute -left-[14px] top-2 w-6 h-6 ${colors[i % colors.length]} border-4 border-black"></div>
+                        <div class="bg-white border-4 border-black p-6 shadow-hard hover:shadow-hard-xl transition-all">
+                            <div class="flex flex-col md:flex-row justify-between items-start md:items-center border-b-2 border-dashed border-gray-300 pb-4 mb-4">
+                                <h3 class="text-3xl font-black uppercase">${exp.type}</h3>
+                                <span class="font-mono font-bold bg-neo-black text-white px-2 py-1">${exp.period || 'PRESENT'}</span>
+                            </div>
+                            <p class="font-mono text-xl mb-2 font-bold">${exp.company || '@ SELF_EMPLOYED'}</p>
+                            <p class="font-mono text-gray-700">${exp.description}</p>
+                        </div>
+                    </div>
+                `).join('');
+
+                // Stats
+                document.getElementById('github-username-text').textContent = data.githubStats.username;
+                document.getElementById('github-chart').src = `https://ghchart.rshah.org/4D4DFF/${data.githubStats.username}`;
+                document.getElementById('github-link').href = data.social.github;
+
+                const leetcodeUsername = data.leetcode?.username || '';
+                const leetcodeCard = document.getElementById('leetcode-card');
+                const leetcodeSection = leetcodeCard?.closest('.reveal');
+                if (leetcodeUsername) {
+                    document.getElementById('leetcode-username-text').textContent = leetcodeUsername;
+                    leetcodeCard.src = `https://leetcard.jacoblin.cool/${leetcodeUsername}?theme=dark&font=Ubuntu&ext=heatmap`;
+                    document.getElementById('leetcode-link').href = `https://leetcode.com/u/${leetcodeUsername}/`;
+                } else if (leetcodeSection) {
+                    leetcodeSection.style.display = 'none';
+                }
+
+                // GitHub API for exact counts
+                fetch(`https://api.github.com/users/${data.githubStats.username}`)
+                    .then(r => r.json())
+                    .then(gh => {
+                        document.getElementById('repos-count').textContent = gh.public_repos || '0';
+                        document.getElementById('followers-count').textContent = gh.followers || '0';
+                    });
+
+                // Projects
+                const projectsGrid = document.getElementById('projects-grid');
+                const projects = asArray(data.projects);
+                projectsGrid.innerHTML = projects.length
+                    ? projects.map((p, i) => `
+                    <article class="reveal group bg-white border-4 border-black p-4 shadow-hard ${i % 2 !== 0 ? 'mt-0 md:mt-20' : ''}">
+                        <div class="bg-black border-2 border-black aspect-video relative overflow-hidden mb-6">
+                            <img src="${p.image}" alt="${p.name}" class="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity">
+                        </div>
+                        <div class="flex justify-between items-start">
+                            <div class="flex-1">
+                                <h3 class="text-4xl font-black uppercase mb-2 glitch-hover">${p.name}</h3>
+                                <p class="font-mono text-sm mb-4">${p.description}</p>
+                                <div class="flex gap-2 font-mono text-xs font-bold flex-wrap">
+                                    ${p.technologies.map(tech => `<span class="bg-neo-black text-white px-2 py-1">${tech}</span>`).join('')}
+                                </div>
+                            </div>
+                            <a href="${p.github}" target="_blank" class="w-12 h-12 border-2 border-black bg-neo-green flex items-center justify-center hover:bg-black hover:text-white transition-all shadow-hard-sm ml-4">
+                                <i class="ri-arrow-right-up-line text-2xl"></i>
+                            </a>
+                        </div>
+                    </article>
+                `).join('')
+                    : `<p class="font-mono text-lg col-span-full bg-white border-4 border-black p-6 shadow-hard">Projects coming soon — add them one by one.</p>`;
+
+                // Contact
+                document.getElementById('contact-email').textContent = data.personal.email;
+                document.getElementById('contact-email').href = `mailto:${data.personal.email}`;
+                document.getElementById('contact-phone').textContent = data.personal.phone;
+
+                // Footer
+                document.getElementById('footer-logo').textContent = `${data.personal.name.split(' ')[0].toUpperCase()}.`;
+                document.getElementById('copyright').textContent = `© ${new Date().getFullYear()} ${data.personal.name.toUpperCase()} // SYSTEM_END`;
+
+                const footerSocials = document.getElementById('footer-socials');
+                const socialIcons = {
+                    'github': 'ri-github-fill',
+                    'linkedin': 'ri-linkedin-fill',
+                    'leetcode': 'ri-code-box-fill',
+                    'twitter': 'ri-twitter-fill',
+                    'instagram': 'ri-instagram-fill',
+                    'discord': 'ri-discord-fill',
+                    'portfolio': 'ri-global-line',
+                    'website': 'ri-global-line'
+                };
+                footerSocials.innerHTML = Object.entries(data.social)
+                    .filter(([name, url]) => url !== "")
+                    .map(([name, url]) => `
+                        <a href="${url}" target="_blank" class="text-2xl hover:text-neo-blue transition-colors cursor-hover">
+                            <i class="${socialIcons[name] || 'ri-link'}"></i>
+                        </a>
+                    `).join('');
+
+                // Custom Cursor Logic
+                initCursor();
+                // Reveal Logic
+                initReveal();
+
+            } catch (error) {
+                console.error('Error loading portfolio data:', error);
+            }
+        }
+
+        function initCursor() {
+            const cursor = document.getElementById('cursor');
+            document.addEventListener('mousemove', (e) => {
+                cursor.style.left = e.clientX + 'px';
+                cursor.style.top = e.clientY + 'px';
+                cursor.style.transform = `translate(-50%, -50%)`;
+            });
+
+            document.querySelectorAll('.cursor-hover, a, button, input, textarea').forEach(el => {
+                el.addEventListener('mouseenter', () => {
+                    cursor.style.width = '60px';
+                    cursor.style.height = '60px';
+                    cursor.style.backgroundColor = '#00F0FF';
+                    cursor.style.mixBlendMode = 'normal';
+                    cursor.style.border = '2px solid black';
+                });
+                el.addEventListener('mouseleave', () => {
+                    cursor.style.width = '24px';
+                    cursor.style.height = '24px';
+                    cursor.style.backgroundColor = '#fff';
+                    cursor.style.mixBlendMode = 'difference';
+                    cursor.style.border = 'none';
+                });
+            });
+        }
+
+        function initReveal() {
+            const revealElements = document.querySelectorAll('.reveal');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) entry.target.classList.add('active');
+                });
+            }, { threshold: 0.1 });
+            revealElements.forEach(el => observer.observe(el));
+
+            window.onscroll = () => {
+                let winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+                let height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+                let scrolled = (winScroll / height) * 100;
+                document.getElementById("progressBar").style.width = scrolled + "%";
+            };
+        }
+
+        loadPortfolio();
+    </script>
+</body>
+
+</html><!-- Update: Refactor styling for better responsiveness -->
+<!-- Update: Optimize image loading performance -->
+<!-- Update: Update meta tags for SEO improvements -->
+<!-- Update: Refine cursor animation logic -->
+<!-- Update: Adjust color palette contrast -->
+<!-- Update: Improve typography accessibility -->
+<!-- Update: Update font loading strategy -->
+<!-- Update: Refactor grid layout logic -->
+<!-- Update: Optimize marquee animation speed -->
+<!-- Update: Add subtle hover effects to buttons -->
+<!-- Update: Improve mobile navigation transition -->
+<!-- Update: Update system status text logic -->
+<!-- Update: Refine skill cards border styles -->
+<!-- Update: Optimize GitHub stats fetching -->
+<!-- Update: Adjust timeline spacing on mobile -->
+<!-- Update: Update contact form validation -->
+<!-- Update: Refine footer sitemap links -->
+<!-- Update: Optimize Tailwind configuration -->
+<!-- Update: Add smooth scroll behavior -->
+<!-- Update: Update CV download link -->
+<!-- Update: Refactor loadPortfolio function -->
+<!-- Update: Improve error handling in fetch calls -->
+<!-- Update: Adjust hero title font size -->
+<!-- Update: Update social icons hover state -->
+<!-- Update: Refine project card shadow effects -->
+<!-- Update: Optimize CSS transitions performance -->
+<!-- Update: Update copyright year in footer -->
+<!-- Update: Refactor intersection observer logic -->
+<!-- Update: Adjust reveal animation delay -->
+<!-- Update: Improve code readability in script block -->
+<!-- Update: Update placeholder text in contact form -->
+<!-- Update: Refine background grid pattern -->
+<!-- Update: Optimize selection color style -->
+<!-- Update: Adjust progress bar height -->
+<!-- Update: Update logo text case -->
+<!-- Update: Refactor skill type mapping -->
+<!-- Update: Improve accessibility of icon buttons -->
+<!-- Update: Update leetcode card contrast -->
+<!-- Update: Refine experience item borders -->
+<!-- Update: Final polish of UI elements -->

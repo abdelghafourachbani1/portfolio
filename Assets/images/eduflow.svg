@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="675" viewBox="0 0 1200 675">
+  <defs>
+    <pattern id="grid-eduflow" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M40 0H0V40" fill="none" stroke="#111" stroke-width="1" opacity="0.15"/>
+    </pattern>
+  </defs>
+  <rect width="1200" height="675" fill="#0a0a0a"/>
+  <rect width="1200" height="675" fill="url(#grid-eduflow)"/>
+  <rect x="48" y="48" width="1104" height="579" fill="none" stroke="#FFE600" stroke-width="8"/>
+  <rect x="80" y="80" width="220" height="36" fill="#FFE600"/>
+  <text x="92" y="104" font-family="monospace" font-size="18" font-weight="700" fill="#000">PROJECT.EXE</text>
+  <text x="80" y="320" font-family="Impact, Arial Black, sans-serif" font-size="96" font-weight="900" fill="#fff">EDUFLOW</text>
+  <text x="80" y="390" font-family="monospace" font-size="28" fill="#FFE600">Course platform</text>
+  <rect x="80" y="520" width="160" height="48" fill="#FFE600" stroke="#fff" stroke-width="3"/>
+  <text x="100" y="552" font-family="monospace" font-size="20" font-weight="700" fill="#000">VIEW →</text>
+</svg>

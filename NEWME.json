@@ -1,0 +1,164 @@
+{
+  "personal": {
+    "name": "Abdelghafour Achbani",
+    "title": "Full Stack Developer",
+    "bio": "Full-Stack Web Developer with experience in Laravel, PHP, JavaScript, and database design. I enjoy turning ideas into functional, high-quality web applications while continuously learning new technologies.",
+    "location": "Morocco",
+    "status": "Looking for Internship",
+    "email": "achbaniabdelghafour8@gmail.com",
+    "phone": "0770045534",
+    "website": ""
+  },
+  "social": {
+    "github": "https://github.com/abdelghafourachbani1",
+    "linkedin": "https://www.linkedin.com/in/abdelghafour-achbani-6a3ba938a/",
+    "leetcode": "",
+    "portfolio": "",
+    "instagram": "",
+    "discord": "",
+    "twitter": ""
+  },
+  "skills": {
+    "frontend": [
+      "HTML5",
+      "CSS3",
+      "JavaScript",
+      "Bootstrap",
+      "React",
+      "Next.js"
+    ],
+    "backend": [
+      "PHP",
+      "Laravel",
+      "Python"
+    ],
+    "cms": [],
+    "seo_and_compliance": [],
+    "databases": [
+      "MySQL",
+      "PostgreSQL"
+    ],
+    "3d_web_graphics": [],
+    "devops": [],
+    "design": [
+      "Figma",
+      "UI/UX Design"
+    ],
+    "tools": [
+      "Git",
+      "GitHub",
+      "Jira",
+      "Trello"
+    ],
+    "frameworks_and_libraries": [
+      "Laravel",
+      "React",
+      "Next.js",
+      "Bootstrap"
+    ],
+    "concepts": [
+      "Scrum",
+      "UML",
+      "Database Design",
+      "Version Control",
+      "Problem Solving"
+    ]
+  },
+  "education": [
+    {
+      "school": "YouCode | UM6P",
+      "program": "Web & Mobile Development",
+      "location": "Safi, Maroc",
+      "year": "2025 — 2027"
+    },
+    {
+      "school": "Cadi Ayyad Polydisciplinary Faculty",
+      "program": "Associate Degree (Bac+1) — Mathematics & Computer Science",
+      "location": "Maroc",
+      "year": ""
+    },
+    {
+      "school": "Ben El Hassan Elwazany High School",
+      "program": "Baccalauréat — Physical Sciences",
+      "location": "Safi, Maroc",
+      "year": ""
+    }
+  ],
+  "experience": [
+    {
+      "type": "Full Stack Developer",
+      "company": "@ SoftSevenArt",
+      "period": "May 11, 2026 — Jul 11, 2026",
+      "description": "Contributed to the development of web applications as a Full Stack Developer. Worked with Laravel, PHP, JavaScript, and database design to deliver functional, high-quality features."
+    }
+  ],
+  "projects": [
+    {
+      "name": "EasyColoc",
+      "description": "Roommate expense tracker that splits costs intelligently, manages members and invitations, and keeps shared finances transparent with categories, expenses, and payments.",
+      "technologies": ["Laravel", "PHP", "Blade", "MySQL"],
+      "github": "https://github.com/abdelghafourachbani1/EasyColoc",
+      "image": "Assets/images/easycoloc.svg"
+    },
+    {
+      "name": "daRent",
+      "description": "Property rental platform with listings, reservations, favorites, reviews, and real-time messaging between hosts and renters.",
+      "technologies": ["Laravel", "PHP", "TailwindCSS", "Laravel Echo", "MySQL"],
+      "github": "https://github.com/abdelghafourachbani1/daRent",
+      "image": "Assets/images/darent.svg"
+    },
+    {
+      "name": "LogisMorocco",
+      "description": "Logistics and order-management platform for Morocco — orders, transactions, notifications, and real-time updates with a modern Laravel + Livewire stack.",
+      "technologies": ["Laravel", "Livewire", "TypeScript", "Laravel Reverb", "TailwindCSS"],
+      "github": "https://github.com/abdelghafourachbani1/LogisMorocco",
+      "image": "Assets/images/logismorocco.svg"
+    },
+    {
+      "name": "Talentia",
+      "description": "Recruitment platform connecting employers and candidates through profiles, job offers, applications, and networking features.",
+      "technologies": ["Laravel", "Livewire", "PHP", "Spatie Permission", "MySQL"],
+      "github": "https://github.com/abdelghafourachbani1/Talentia",
+      "image": "Assets/images/talentia.svg"
+    },
+    {
+      "name": "EduFlow",
+      "description": "Learning platform for browsing courses, managing enrollments and groups, tracking interests, and saving wishlists.",
+      "technologies": ["Laravel", "PHP", "Blade", "MySQL"],
+      "github": "https://github.com/abdelghafourachbani1/EduFlow",
+      "image": "Assets/images/eduflow.svg"
+    },
+    {
+      "name": "WorkSphere",
+      "description": "Interactive floor-plan workspace to assign staff to zones in real time, with role-based access rules and a responsive UI.",
+      "technologies": ["HTML5", "CSS3", "JavaScript"],
+      "github": "https://github.com/abdelghafourachbani1/Virtual-Workspace",
+      "demo": "https://virtual-workspace-roan.vercel.app",
+      "image": "Assets/images/worksphere.svg"
+    }
+  ],
+  "languages": [
+    {
+      "language": "Arabic",
+      "level": "Native"
+    },
+    {
+      "language": "English",
+      "level": "Intermediate"
+    },
+    {
+      "language": "French",
+      "level": "A1"
+    }
+  ],
+  "githubStats": {
+    "username": "abdelghafourachbani1",
+    "totalRepos": "31"
+  },
+  "leetcode": {
+    "username": ""
+  },
+  "resume": {
+    "file": "Assets/Resume/Achbani_Abdelghafour_CV.pdf"
+  }
+}
